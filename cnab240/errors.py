@@ -11,7 +11,9 @@ class AtribuicaoCampoError(Cnab240Error):
     def __init__(self, campo, valor):
         self.campo = campo
         self.valor = valor
-        super(AtribuicaoCampoError, self).__init__(self)
+
+        self.message = unicode(self)
+        super(AtribuicaoCampoError, self).__init__(self.message)
 
     def __unicode__(self):
         return u'campo:{0} formato:{1} decimais:{2} digitos:{3} - valor:{4}'.\
